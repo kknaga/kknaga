@@ -12,6 +12,7 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    ignores: ['**/proto-gpt/**'],
     rules: {
       "@next/next/no-html-link-for-pages": "off",
       "react/no-unescaped-entities": "off",
