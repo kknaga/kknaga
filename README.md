@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kareem Aboualnaga
 
-## Getting Started
+I'm a Frontend Engineer currently working at Amazon Web Services (AWS) on resource management tools. My professional background includes experience in fintech, e-commerce, and cloud services. I focus on building digital products that consider both technical implementation and user experience.
 
-First, run the development server:
+Outside of my primary role, I develop side projects. These serve as a way to explore specific technical ideas, test assumptions about user behavior, and deepen my understanding of how people interact with digital tools. Some of these projects have reached a modest scale.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+My portfolio site provides further detail on my work: **https://kknaga.com**
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Articles & Insights
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+These writings reflect on observations from my work and projects.
 
-## Learn More
+- **[Observations on Monetizing Small Web Applications](https://kknaga.com/blog/product-assessment)** - An examination of assessing products from an external perspective compared to an internal one.
+- **[Applying Cognitive Models to Interface Design](https://kknaga.com/blog/monetization)** - Discusses experiences with different monetization approaches and balancing them with user experience needs.
+- **[The Effect of Perspective on Product Assessment](https://kknaga.com/blog/system-1)** - Explores how understanding user behavior and decision-making processes informed interface improvements for a tool.
 
-To learn more about Next.js, take a look at the following resources:
+_(More articles are available on my portfolio site: https://kknaga.com)_
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Side Projects
 
-## Deploy on Vercel
+These are independently developed projects, some of which remain actively maintained.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **[LOLSkin.info](https://lolskin.info)** - A web directory listing League of Legends skins, containing over 32,000 pages across 18 languages. It evolved from a simple browser based on observed user behavior and currently receives approximately 89,000 monthly visitors.
+- **[KKMet](https://kkmet.com)** - A personal development site that hosts a collection of tools, including champion randomizers and a ping visualizer. It receives around 58,000 monthly visitors.
+- **[Hexfuser](https://hexfuser.com)** - A multilingual League of Legends tool built to compare different interface designs. It was developed to understand user preferences regarding UI complexity and currently has about 13,000 monthly users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Experimental Projects
+
+These projects were typically built to investigate a specific concept, technology, or user niche.
+
+- **[Split Keyboard Database (SKBDb)](https://skbdb.com)** - A database project focused on exploring different methods for organizing information about niche hardware.
+- **[The Car Picker](https://thecarpicker.com)** - A random selection tool for cars, developed to understand a different user audience and the automotive advertising market.
+- **[The City Picker](https://thecitypicker.com)** - A tool for random city selection, used to experiment with data categorization and geographical filtering interfaces.
+- **[WhatTheCost](https://whatthecost.com)** - A calculator demonstrating product value based on usage frequency and duration. Its reception provided insights into communicating utility effectively.
+- **[Probability Simulator](https://kkmet-com.firebaseapp.com/oddsometer/)** - A visualization tool designed to illustrate probability concepts over varying numbers of trials.
+
+---
+
+## Archived Projects
+
+Selected past projects that provided specific learning experiences.
+
+- **[League of Legends City Rankings](https://town-faker.web.app)** - A player registry experiment that highlighted challenges related to API limitations and scaling during a peak of 140k daily visitors.
+- **[Ping Visualizer](https://kkmet.com/ping)** - A tool visualizing network latency in real-time. Its reception demonstrated the value of simple, effective visualizations for technical concepts within gaming communities.
+- **[Skin Randomizer](https://kkmet.com/old-lss)** - An early League of Legends tool that provided foundational lessons in understanding search traffic, user intent, and project evolution.
+
+---
+
+## Technical Areas
+
+My work primarily involves the following technologies and concepts:
+
+- **Frontend:** React, Next.js, TypeScript, SCSS/CSS Modules, JavaScript
+- **Backend/Cloud:** Node.js, AWS (various services), Firebase
+- **Concepts:** UI/UX Design Principles, Human-Computer Interaction, Data Visualization, Web Performance, Scalability Considerations
+
+---
+
+## Contact & Portfolio Link
+
+- **Portfolio:** https://kknaga.com
+- **LinkedIn:** https://linkedin.com/in/kkmet
+- **Email:** contact@kknaga.com

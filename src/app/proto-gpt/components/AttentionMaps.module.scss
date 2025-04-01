@@ -1,0 +1,310 @@
+.attentionMapsContainer {
+  font-family: var(--font-serif);
+  background-color: #fdefc8;
+  border-radius: 8px;
+  color: #8C6E54;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.inputSection {
+  margin: 24px 0;
+  
+  h4 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #5A4636;
+  }
+  
+  p {
+    margin-bottom: 12px;
+  }
+}
+
+.textInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #8C6E54;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: #5A4636;
+  background-color: #fdefc8;
+  resize: vertical;
+  
+  &:focus {
+    outline: none;
+    border-color: #5A4636;
+    box-shadow: 0 0 0 2px rgba(90, 70, 54, 0.1);
+  }
+}
+
+.visualizationContainer {
+  background-color: #fef8e6;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+
+.tokenSelector {
+  margin-bottom: 24px;
+  
+  h4 {
+    margin-bottom: 12px;
+    font-size: 18px;
+    color: #5A4636;
+  }
+}
+
+.tokenButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tokenButton {
+  padding: 8px 16px;
+  background-color: rgba(140, 110, 84, 0.1);
+  border: 1px solid #8C6E54;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: rgba(140, 110, 84, 0.2);
+  }
+  
+  &.selectedToken {
+    background-color: #8C6E54;
+    color: #F5F1E6;
+  }
+}
+
+.attentionVisualization {
+  margin-bottom: 32px;
+  
+  h4 {
+    margin-bottom: 16px;
+    font-size: 18px;
+    color: #5A4636;
+  }
+}
+
+.attentionMap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.attentionHeader {
+  display: flex;
+  margin-left: 100px;
+  
+  .attentionCorner {
+    width: 24px;
+  }
+}
+
+.attentionLabel {
+  width: 60px;
+  padding: 8px 4px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: #5A4636;
+}
+
+.attentionRows {
+  display: flex;
+  align-items: center;
+}
+
+.attentionRowLabel {
+  width: 100px;
+  padding: 8px;
+  text-align: right;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 14px;
+  color: #5A4636;
+}
+
+.attentionRow {
+  display: flex;
+}
+
+.attentionCell {
+  width: 60px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(140, 110, 84, 0.1);
+  
+  &:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(90, 70, 54, 0.3);
+  }
+}
+
+.attentionScore {
+  font-family: monospace;
+  font-size: 12px;
+  color: #5A4636;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.attentionExplanation {
+  margin-top: 12px;
+  font-style: italic;
+  font-size: 14px;
+}
+
+.fullAttentionMap {
+  margin-top: 32px;
+  
+  h4 {
+    margin: 16px 0;
+    font-size: 18px;
+    color: #5A4636;
+  }
+}
+
+.toggleButton {
+  margin-bottom: 16px;
+}
+
+.heatmapContainer {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.heatmapCorner {
+  width: 80px;
+  height: 32px;
+  background-color: #fdefc8;
+  border: 1px solid rgba(140, 110, 84, 0.1);
+}
+
+.heatmapColumnHeaders {
+  display: flex;
+}
+
+.heatmapRowHeaders {
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmapHeader {
+  width: 80px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  background-color: #fdefc8;
+  color: #5A4636;
+  border: 1px solid rgba(140, 110, 84, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.heatmap {
+  display: flex;
+  flex-direction: column;
+}
+
+.heatmapRow {
+  display: flex;
+}
+
+.heatmapCell {
+  width: 80px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(140, 110, 84, 0.1);
+  transition: all 0.2s;
+  
+  &:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(90, 70, 54, 0.3);
+  }
+  
+  &.selectedRow {
+    border-top: 2px solid #5A4636;
+    border-bottom: 2px solid #5A4636;
+  }
+  
+  &.selectedColumn {
+    border-left: 2px solid #5A4636;
+    border-right: 2px solid #5A4636;
+  }
+}
+
+.heatmapValue {
+  font-family: monospace;
+  font-size: 11px;
+  color: #5A4636;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1px 3px;
+  border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .attentionHeader {
+    margin-left: 60px;
+  }
+  
+  .attentionLabel {
+    width: 40px;
+    font-size: 12px;
+    padding: 4px 2px;
+  }
+  
+  .attentionRowLabel {
+    width: 60px;
+    font-size: 12px;
+  }
+  
+  .attentionCell {
+    width: 40px;
+    height: 30px;
+  }
+  
+  .attentionScore {
+    font-size: 10px;
+  }
+  
+  .heatmapHeader {
+    width: 60px;
+    font-size: 10px;
+  }
+  
+  .heatmapCell {
+    width: 60px;
+    height: 28px;
+  }
+  
+  .heatmapValue {
+    font-size: 9px;
+  }
+}

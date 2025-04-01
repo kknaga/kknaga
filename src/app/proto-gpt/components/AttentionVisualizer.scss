@@ -1,0 +1,272 @@
+/* AttentionVisualizer.module.scss */
+.attention-visualizer {
+  background-color: #fef8e6;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 24px;
+
+  h3 {
+    color: #5A4636;
+    margin-bottom: 16px;
+  }
+
+  h4 {
+    color: #5A4636;
+    margin-top: 20px;
+    margin-bottom: 12px;
+  }
+
+  h5 {
+    color: #5A4636;
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+  
+  &.empty {
+    text-align: center;
+    padding: 40px 20px;
+    
+    p {
+      color: #8C6E54;
+    }
+  }
+}
+
+.attention-explanation {
+  margin-bottom: 20px;
+  
+  p {
+    color: #8C6E54;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.attention-matrix {
+  background-color: #fdefc8;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.matrix-headers {
+  display: flex;
+  margin-left: 100px;
+  margin-bottom: 8px;
+  position: sticky;
+  top: 0;
+  background-color: #fdefc8;
+  z-index: 10;
+}
+
+.corner-placeholder {
+  width: 80px;
+  min-width: 80px;
+  flex-shrink: 0;
+  position: sticky;
+  left: 0;
+  z-index: 15;
+  background-color: #fdefc8;
+}
+
+.column-header {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  padding: 8px 2px;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #5A4636;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  &:hover {
+    background-color: rgba(140, 110, 84, 0.1);
+  }
+  
+  &.selected {
+    background-color: rgba(140, 110, 84, 0.2);
+    color: #5A4636;
+    font-weight: 700;
+  }
+}
+
+.matrix-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.matrix-row {
+  display: flex;
+  align-items: center;
+}
+
+.row-header {
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+  text-align: right;
+  padding: 8px 6px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: #5A4636;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: sticky;
+  left: 0;
+  background-color: #fdefc8;
+  z-index: 5;
+  
+  &:hover {
+    background-color: rgba(140, 110, 84, 0.1);
+  }
+  
+  &.selected {
+    background-color: rgba(140, 110, 84, 0.2);
+    color: #5A4636;
+    font-weight: 700;
+  }
+}
+
+.attention-cell {
+  width: 40px;
+  min-width: 40px;
+  max-width: 40px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  flex-shrink: 0;
+  
+  &:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.highlighted {
+    border: 2px solid #5A4636;
+  }
+}
+
+.score-value {
+  font-size: 10px;
+  color: #ffffff;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.attention-details {
+  background-color: #fdefc8;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.selected-token {
+  margin-bottom: 12px;
+  padding: 8px;
+  background-color: rgba(140, 110, 84, 0.1);
+  border-radius: 4px;
+  color: #5A4636;
+}
+
+.connections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.connection-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.connection-token {
+  width: 80px;
+  font-family: var(--font-sans);
+  color: #5A4636;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.connection-bar-container {
+  flex-grow: 1;
+  height: 20px;
+  background-color: rgba(140, 110, 84, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.connection-bar {
+  height: 100%;
+  background-color: rgba(140, 110, 84, 0.5);
+  border-radius: 10px;
+}
+
+.connection-score {
+  width: 50px;
+  text-align: right;
+  font-family: var(--font-sans);
+  color: #5A4636;
+}
+
+.specific-connection {
+  padding: 12px;
+  background-color: rgba(140, 110, 84, 0.05);
+  border-radius: 8px;
+  margin-top: 16px;
+  
+  p {
+    color: #5A4636;
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  
+  .connection-explanation {
+    font-style: italic;
+    color: #8C6E54;
+  }
+}
+
+.technical-explanation {
+  margin-top: 24px;
+  
+  ol {
+    padding-left: 24px;
+    margin-bottom: 16px;
+    
+    li {
+      color: #8C6E54;
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+  }
+  
+  p {
+    color: #8C6E54;
+    line-height: 1.5;
+  }
+}

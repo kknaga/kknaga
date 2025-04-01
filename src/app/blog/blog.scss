@@ -1,0 +1,148 @@
+.article-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #2f2f2f;
+  
+  @media (min-width: 1200px) {
+    max-width: 800px;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+.article-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #1d1d1d;
+  
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
+}
+
+.article-subtitle {
+  font-style: italic;
+  color: #7d7d7d;
+  margin-bottom: 1.5rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.article-meta {
+  font-size: 0.9rem;
+  color: #999;
+  margin-bottom: 2.5rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.article-section-heading {
+  font-size: 1.25rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #3a3a3a;
+  
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+}
+
+.article-subsection-heading {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  color: #4a4a4a;
+  
+  @media (max-width: 768px) {
+    font-size: 1.05rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.article-paragraph {
+  margin-bottom: 1.2rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+}
+
+.article-list {
+  margin-left: 1.5rem;
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+  
+  @media (max-width: 768px) {
+    margin-left: 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.article-list-item {
+  margin-bottom: 0.75rem;
+  
+  @media (max-width: 768px) {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.article-link {
+  color: #8C6E54;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(140, 110, 84, 0.3);
+  transition: border-color 0.2s;
+  
+  &:hover {
+    border-color: rgba(140, 110, 84, 0.8);
+  }
+}
+
+.article-feature-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 2rem 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  
+  @media (max-width: 768px) {
+    margin: 1.5rem 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.article-back-link {
+  margin-top: 3rem;
+  font-size: 0.95rem;
+  text-align: left;
+  
+  @media (max-width: 768px) {
+    margin-top: 2rem;
+  }
+  
+  a {
+    color: #8C6E54;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
