@@ -1,8 +1,32 @@
 import Image from "next/image";
 import styles from "./page.module.scss";
 import Link from "next/link";
+import { ProjectAnalyticsChart } from "./components/ProjectAnalyticsChart";
+import { AnalyticsOverview } from "./components/AnalyticsOverview";
+import { unstable_cache } from "next/cache";
 
-const sectionsData = [
+export type CloudflareAnalytics = {
+  projectId: string;
+  visitors: { date: string; count: number }[];
+};
+
+type Section = {
+  title: string;
+  items: {
+    date: string;
+    type: string;
+    title: string;
+    link: string;
+    imageSrc: string;
+    imageAlt: string;
+    description: string;
+    zoneId?: string;
+    monthlyVisitors?: number;
+    unoptimized?: boolean;
+  }[];
+};
+
+const sectionsData: Section[] = [
   {
     title: "Articles & Insights",
     items: [
@@ -41,16 +65,6 @@ const sectionsData = [
   {
     title: "Side Projects",
     items: [
-      // {
-      //   date: "February 2024",
-      //   type: "Educational Project",
-      //   title: "ProtoGPT - Understanding Transformer Architecture",
-      //   link: "/proto-gpt",
-      //   imageSrc: "/2x2.png",
-      //   imageAlt: "ProtoGPT screenshot",
-      //   description:
-      //     "An interactive exploration of language model architecture that helps visualize how transformers work through accessible explanations.",
-      // },
       {
         date: "Ongoing since 2020",
         type: "Web Directory",
@@ -61,7 +75,9 @@ const sectionsData = [
         imageAlt: "LOLSkin.info screenshot",
         unoptimized: true,
         description:
-          "A directory with 32,000+ pages across 18 languages. Started as a skin browser but evolved based on how users actually used it. Currently gets about 89,000 monthly visitors.",
+          "A directory with 32,000+ pages across 18 languages. Started as a skin browser but evolved based on how users actually used it.",
+        zoneId: "5c56eaea28aa0992dbd345c612a94f59",
+        monthlyVisitors: 89000,
       },
       {
         date: "Ongoing since 2019",
@@ -71,7 +87,9 @@ const sectionsData = [
         imageSrc: "/kkmet.webp",
         imageAlt: "KKMet logo",
         description:
-          "My development playground that grew into a collection of tools including champion randomizers and a ping visualizer. Gets around 58,000 monthly visitors.",
+          "My development playground that grew into a collection of tools including champion randomizers and a ping visualizer.",
+        zoneId: "d6d1a369b822e4a56d40c85a17dd2dcc",
+        monthlyVisitors: 58000,
       },
       {
         date: "Ongoing from 2021",
@@ -81,7 +99,9 @@ const sectionsData = [
         imageSrc: "/hexfuser.jpg",
         imageAlt: "Hexfuser logo",
         description:
-          "A multilingual League of Legends tool built to compare different interface designs. Helps me understand what users prefer in terms of UI complexity. Gets about 13,000 monthly users.",
+          "A multilingual League of Legends tool built to compare different interface designs. Helps me understand what users prefer in terms of UI complexity.",
+        zoneId: "c9dfb96f65564c5ae4c2f8e0d5213443",
+        monthlyVisitors: 13000,
       },
     ],
   },
@@ -187,7 +207,123 @@ const sectionsData = [
   },
 ];
 
-export default function Home() {
+// Function to fetch data from Cloudflare wrapped in unstable_cache
+async function getCloudflareAnalytics(): Promise<CloudflareAnalytics[]> {
+  return fetchAndCacheCloudflareData();
+}
+
+// The actual fetching function that will be cached
+const fetchAndCacheCloudflareData = unstable_cache(
+  async () => {
+    console.log(
+      "Fetching Cloudflare analytics data - this should only run once per day"
+    );
+
+    const dates = Array.from({ length: 30 }, (_, i) => {
+      const date = new Date();
+      date.setDate(date.getDate() - i);
+      return date.toISOString().split("T")[0];
+    }).reverse();
+
+    const projectsWithZoneIds = sectionsData
+      .flatMap((section) => section.items)
+      .filter((item) => item.zoneId && item.zoneId.trim() !== "");
+
+    const analyticsPromises = projectsWithZoneIds.map(async (project) => {
+      const analytics: CloudflareAnalytics = {
+        projectId: project.title,
+        visitors: [],
+      };
+
+      try {
+        const query = `
+          query {
+            viewer {
+              zones(filter: { zoneTag: "${project.zoneId}" }) {
+                httpRequests1dGroups(
+                  limit: 30, 
+                  filter: { 
+                    date_geq: "${dates[0]}",
+                    date_leq: "${dates[dates.length - 1]}"
+                  }
+                ) {
+                  dimensions {
+                    date
+                  }
+                  uniq {
+                    uniques
+                  }
+                }
+              }
+            }
+          }
+        `;
+
+        const response = await fetch(
+          "https://api.cloudflare.com/client/v4/graphql",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${process.env.CLOUDFLARE_API_TOKEN}`,
+            },
+            body: JSON.stringify({ query }),
+          }
+        );
+
+        const data = await response.json();
+        const requests =
+          data?.data?.viewer?.zones[0]?.httpRequests1dGroups || [];
+
+        requests.forEach((req: any) => {
+          const date = req.dimensions.date;
+          const uniques = req.uniq.uniques || 0;
+
+          analytics.visitors.push({
+            date,
+            count: uniques,
+          });
+        });
+
+        const dateMap = new Map(
+          analytics.visitors.map((v) => [v.date, v.count])
+        );
+        analytics.visitors = dates.map((date) => ({
+          date,
+          count: dateMap.get(date) || 0,
+        }));
+      } catch (error) {
+        console.error(`Error fetching data for ${project.title}:`, error);
+
+        analytics.visitors = dates.map((date) => ({
+          date,
+          count: 0,
+        }));
+      }
+
+      return analytics;
+    });
+
+    return Promise.all(analyticsPromises);
+  },
+
+  ["cloudflare-analytics-data-v1"],
+
+  {
+    revalidate: 86400,
+
+    tags: ["cloudflare-analytics"],
+  }
+);
+
+export default async function Home() {
+  let analyticsData: CloudflareAnalytics[] = [];
+
+  try {
+    analyticsData = await getCloudflareAnalytics();
+  } catch (error) {
+    console.error("Failed to fetch Cloudflare analytics:", error);
+  }
   return (
     <div className={styles.page}>
       {/* --- Main Intro Section --- */}
@@ -208,28 +344,76 @@ export default function Home() {
       {sectionsData.map((section, sectionIndex) => (
         <div className={styles.section} key={sectionIndex}>
           <h2>{section.title}</h2>
+
+          {section.title === "Side Projects" && analyticsData.length > 0 && (
+            <div className={styles.analyticsGrid}>
+              <AnalyticsOverview analyticsData={analyticsData} />
+            </div>
+          )}
           <div className={styles.projectGrid}>
-            {section.items.map((item, itemIndex) => (
-              <div className={styles.projectCard} key={itemIndex}>
-                <div className={styles.projectInfo}>
-                  <div className={styles.projectDate}>{item.date}</div>
-                  <div className={styles.projectType}>{item.type}</div>
+            {section.items.map((item, itemIndex) => {
+              const projectAnalytics = analyticsData.find(
+                (a) => a.projectId === item.title
+              );
+
+              return (
+                <div className={styles.projectCard} key={itemIndex}>
+                  <div className={styles.projectInfo}>
+                    <div className={styles.projectDate}>{item.date}</div>
+                    <div className={styles.projectType}>{item.type}</div>
+                  </div>
+                  <h3>
+                    <Link href={item.link}>{item.title}</Link>
+                  </h3>
+                  <Link href={item.link} className={styles.projectImage}>
+                    <Image
+                      src={item.imageSrc}
+                      alt={item.imageAlt}
+                      width={300}
+                      height={300}
+                      unoptimized={item.unoptimized || false}
+                    />
+                  </Link>
+                  <p>{item.description}</p>
+
+                  {/* Show mini chart if analytics are available */}
+                  {projectAnalytics && (
+                    <div className={styles.miniChartContainer}>
+                      <div className={styles.miniStatsGrid}>
+                        <div className={styles.miniStat}>
+                          <span className={styles.miniStatValue}>
+                            {projectAnalytics.visitors
+                              .reduce((sum, day) => sum + day.count, 0)
+                              .toLocaleString()}
+                          </span>
+                          <span className={styles.miniStatLabel}>
+                            30-Day Total
+                          </span>
+                        </div>
+                        <div className={styles.miniStat}>
+                          <span className={styles.miniStatValue}>
+                            {Math.round(
+                              projectAnalytics.visitors.reduce(
+                                (sum, day) => sum + day.count,
+                                0
+                              ) / projectAnalytics.visitors.length
+                            ).toLocaleString()}
+                          </span>
+                          <span className={styles.miniStatLabel}>
+                            Avg Daily
+                          </span>
+                        </div>
+                      </div>
+                      <ProjectAnalyticsChart
+                        data={projectAnalytics.visitors}
+                        simplified={true}
+                        color="#8C6E54"
+                      />
+                    </div>
+                  )}
                 </div>
-                <h3>
-                  <Link href={item.link}>{item.title}</Link>
-                </h3>
-                <Link href={item.link} className={styles.projectImage}>
-                  <Image
-                    src={item.imageSrc}
-                    alt={item.imageAlt}
-                    width={300}
-                    height={300}
-                    unoptimized={item.unoptimized || false}
-                  />
-                </Link>
-                <p>{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       ))}
