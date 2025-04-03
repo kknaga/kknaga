@@ -47,13 +47,6 @@ export default function System1Design() {
         user behavior; the pattern of brief, focused interaction persisted.
       </p>
 
-      <Image
-        src={system1Image}
-        alt="Diagram illustrating System 1 vs System 2 considerations in interface design"
-        className="article-feature-image"
-        priority
-      />
-
       <h2 className="article-section-heading">
         Considering the User's Cognitive Mode
       </h2>

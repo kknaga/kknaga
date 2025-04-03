@@ -264,10 +264,8 @@ export default function AttendGPT({ tokens }: AttendGPTProps) {
         </p>
       </div>
 
-      {/* Add attention visualizer */}
       {attentionDebug && <AttentionVisualizer attentionData={attentionDebug} />}
 
-      {/* Add token prediction visualizer */}
       {tokenPredictions.length > 0 && (
         <TokenPredictionVisualizer
           predictions={tokenPredictions}

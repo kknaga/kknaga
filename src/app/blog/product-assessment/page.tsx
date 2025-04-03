@@ -47,13 +47,6 @@ export default function WhyOutsidersSeeItFirst() {
         – this immediate clarity can become obscured.
       </p>
 
-      <Image
-        src={outsidersImage}
-        alt="An observer outside a complex structure gaining a clearer view"
-        className="article-feature-image"
-        placeholder="blur"
-      />
-
       <h2 className="article-section-heading">
         The Challenge of Internal Perspective
       </h2>

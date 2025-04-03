@@ -33,13 +33,6 @@ export default function BusinessLearning() {
         applications.
       </p>
 
-      <Image
-        src={businessImage}
-        alt="Graph showing the relationship between monetization and user experience"
-        className="article-feature-image"
-        priority
-      />
-
       <h2 className="article-section-heading">
         The Economics of Side Projects
       </h2>

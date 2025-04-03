@@ -259,7 +259,6 @@ const TrainingLoopVisualization = () => {
       </div>
 
       <div className="training-visualization">
-        {/* Current training phase visualization */}
         <div className="training-phase">
           {currentStep === 0 && (
             <div className="forward-pass phase-content">
@@ -385,7 +384,6 @@ const TrainingLoopVisualization = () => {
           )}
         </div>
 
-        {/* Loss over time graph visualization */}
         <div className="training-progress">
           <h4>Training Progress</h4>
           <div className="loss-over-time">{renderLossGraph()}</div>

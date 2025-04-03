@@ -326,7 +326,6 @@ export default async function Home() {
   }
   return (
     <div className={styles.page}>
-      {/* --- Main Intro Section --- */}
       <div className={styles.main}>
         <div className={styles.intro}>
           <p>
@@ -367,7 +366,6 @@ export default async function Home() {
                   </h3>
                   <p>{item.description}</p>
 
-                  {/* Show mini chart if analytics are available */}
                   {projectAnalytics && (
                     <div className={styles.miniChartContainer}>
                       <div className={styles.miniStatsGrid}>
