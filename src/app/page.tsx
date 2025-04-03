@@ -365,15 +365,6 @@ export default async function Home() {
                   <h3>
                     <Link href={item.link}>{item.title}</Link>
                   </h3>
-                  <Link href={item.link} className={styles.projectImage}>
-                    <Image
-                      src={item.imageSrc}
-                      alt={item.imageAlt}
-                      width={300}
-                      height={300}
-                      unoptimized={item.unoptimized || false}
-                    />
-                  </Link>
                   <p>{item.description}</p>
 
                   {/* Show mini chart if analytics are available */}
