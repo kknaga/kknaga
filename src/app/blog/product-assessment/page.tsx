@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import outsidersImage from "../../../../public/outsiders-see-it-first.png";
 import "../blog.scss";
 
 export default function WhyOutsidersSeeItFirst() {

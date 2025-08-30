@@ -12,9 +12,10 @@ My portfolio site provides further detail on my work: **https://kknaga.com**
 
 These writings reflect on observations from my work and projects.
 
-- **[Observations on Monetizing Small Web Applications](https://kknaga.com/blog/product-assessment)** - An examination of assessing products from an external perspective compared to an internal one.
-- **[Applying Cognitive Models to Interface Design](https://kknaga.com/blog/monetization)** - Discusses experiences with different monetization approaches and balancing them with user experience needs.
-- **[The Effect of Perspective on Product Assessment](https://kknaga.com/blog/system-1)** - Explores how understanding user behavior and decision-making processes informed interface improvements for a tool.
+- **[The Perfect Machine Nobody Needs](https://kknaga.com/blog/engineering-efficiency)** - A look into why talented teams sometimes build complex systems that don't solve real problems, and the importance of staying focused on the "why."
+- **[The Effect of Perspective on Product Assessment](https://kknaga.com/blog/product-assessment)** - An examination of assessing products from an external perspective compared to an internal one.
+- **[Applying Cognitive Models to Interface Design](https://kknaga.com/blog/system-1)** - Explores how understanding user behavior and decision-making processes informed interface improvements for a tool.
+- **[Observations on Monetizing Small Web Applications](https://kknaga.com/blog/monetization)** - Discusses experiences with different monetization approaches and balancing them with user experience needs.
 
 _(More articles are available on my portfolio site: https://kknaga.com)_
 

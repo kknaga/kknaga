@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import system1Image from "../../../../public/system1-design.png";
 import "../blog.scss";
 
 export default function System1Design() {

@@ -31,6 +31,16 @@ const sectionsData: Section[] = [
     title: "Articles & Insights",
     items: [
       {
+        date: "August 2025",
+        type: "Article",
+        title: "The Perfect Machine Nobody Needs",
+        link: "/blog/engineering-efficiency",
+        imageSrc: "/perfect-machine.png",
+        imageAlt: "A complex machine representing over-engineering",
+        description:
+          "Why talented teams get lost building complex systems that don't solve real problems, and the importance of staying focused on the 'why'.",
+      },
+      {
         date: "March 2025",
         type: "Article",
         title: "Observations on Monetizing Small Web Applications",

@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import businessImage from "../../../../public/business-learning.png";
 import "../blog.scss";
 
 export default function BusinessLearning() {
