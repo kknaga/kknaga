@@ -8,9 +8,6 @@ export default function Navigation() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <span className={styles.name}>Kareem Aboualnaga</span>
-          <span className={styles.title}>
-            Frontend Engineer with a Side Project Habit
-          </span>
         </Link>
 
         <div className={styles.links}>
