@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 
-const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_TRACKING_ID = "G-X39WGBEF17";
 
 export const metadata: Metadata = {
   title: "Kareem Aboualnaga | Technical Lead",
