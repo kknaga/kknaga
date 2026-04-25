@@ -1,0 +1,178 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --text-muted: #666666;
+  --border: #eeeeee;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+.contact-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.contact-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.contact-links a:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 3px;
+}
+
+.intro-section {
+  margin-bottom: 4rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+}
+
+p.subtitle {
+  color: var(--text-muted);
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background-color: var(--border);
+}
+
+.event {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.event::before {
+  content: "";
+  position: absolute;
+  top: 0.4rem;
+  left: -2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--text-muted);
+}
+
+.event-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 0.25rem;
+}
+
+.event-content {
+  font-size: 0.95rem;
+}
+
+.event-content p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.event-content p:last-child {
+  margin-bottom: 0;
+}
+
+.event-content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 3px;
+}
+
+.event-content a:hover {
+  text-decoration-color: var(--text);
+}
+
+.hobbies-section {
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hobbies-section h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+}
+
+.hobby-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hobby-item {
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.hobby-item::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+}
+
+.hobby-item a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--text-muted);
+  text-underline-offset: 3px;
+}
+
+.hobby-item a:hover {
+  text-decoration-color: var(--text);
+}
