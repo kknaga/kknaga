@@ -33,7 +33,7 @@ export default function Home() {
           <div className="event-date">June 2025 - January 2026</div>
           <div className="event-content">
             <p>
-              Moved to London internally with <strong>AWS</strong>. I started working on a data pipeline unifying all data sources within AWS into a single dictionary encompassing all resource types, services, APIs, and more.
+              Moved to London internally with <strong>AWS</strong> as a Software Engineer. I started working on a data pipeline unifying all data sources within AWS into a single dictionary encompassing all resource types, services, APIs, and more.
             </p>
             <p>
               My work spanned data ingestion and visualizing this data in useful ways for internal users.
@@ -57,7 +57,7 @@ export default function Home() {
           <div className="event-date">July 2021 - September 2022</div>
           <div className="event-content">
             <p>
-              Moved to <strong>eBay</strong> to join the Ads New Ventures team as a founding member in Amsterdam. I worked on an experimental product for displaying eBay ads on third-party sites, moving fast with a small stakeholder group and publishers like TechRadar and Wikia.
+              Moved to <strong>eBay</strong> as a Software Engineer to join the Ads New Ventures team as a founding member in Amsterdam. I worked on an experimental product for displaying eBay ads on third-party sites, moving fast with a small stakeholder group and publishers like TechRadar and Wikia.
             </p>
             <p>
               I developed an in-house system to extract keywords from webpages to serve as context for relevant ad display. I also built the Brand Manager UI, a tool for managing how brands are shown on eBay and interacting with sellers of those brands. I received an eBay spot award (a monetary performance award) for building the Brand Manager on the side.
